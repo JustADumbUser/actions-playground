@@ -1,0 +1,12 @@
+# Workflow to test out what a bad user can get away with if they fork the repo.
+name: Test PR Controls
+on:
+  workflow_dispatch: # In main, this workflow only runs manually.
+
+jobs:
+  test_export:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Use Secret
+      shell: bash
+      run: "echo If we echo a secret, it looks like this: ${{ secrets.FAKE_SECRET }}"
