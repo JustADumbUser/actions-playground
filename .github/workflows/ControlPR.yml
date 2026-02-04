@@ -7,6 +7,9 @@ jobs:
   test_export:
     runs-on: ubuntu-22.04
     steps:
-    - name: Use Secret
+    - name: Write out the branch name
       shell: bash
-      run: "echo If we echo a secret, it looks like this: ${{ secrets.FAKE_SECRET }}"
+      run: echo github.ref_name = ${{github.ref_name}}
+    # - name: Use Secret
+    #   shell: bash
+    #   run: "echo If we echo a secret, it looks like this: ${{ secrets.FAKE_SECRET }}"
