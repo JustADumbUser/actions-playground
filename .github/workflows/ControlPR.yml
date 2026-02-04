@@ -1,8 +1,10 @@
 # Workflow to test out what a bad user can get away with if they fork the repo.
 name: Test PR Controls
 on:
-  push
+  push:
   workflow_dispatch: # In main, this workflow only runs manually.
+  pull_request:
+      types: [opened, reopened]
 
 jobs:
   test_export:
