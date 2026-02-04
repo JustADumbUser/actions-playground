@@ -1,6 +1,7 @@
 # Workflow to test out what a bad user can get away with if they fork the repo.
 name: Test PR Controls
 on:
+  push
   workflow_dispatch: # In main, this workflow only runs manually.
 
 jobs:
@@ -10,6 +11,6 @@ jobs:
     - name: Write out the branch name
       shell: bash
       run: echo github.ref_name = ${{github.ref_name}}
-    # - name: Use Secret
-    #   shell: bash
-    #   run: "echo If we echo a secret, it looks like this: ${{ secrets.FAKE_SECRET }}"
+    - name: Use Secret
+      shell: bash
+      run: "echo If we echo a secret, it looks like this: ${{ secrets.FAKE_SECRET }}"
